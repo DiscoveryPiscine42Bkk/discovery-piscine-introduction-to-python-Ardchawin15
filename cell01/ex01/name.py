@@ -1,4 +1,4 @@
-frist_name="Ardchawin"
+first_name="Ardchawin"
 last_name="Kidsom"
-whole_name=frist_name+last_name+"\n"
+whole_name=first_name+last_name+"\n"
 print(whole_name)
