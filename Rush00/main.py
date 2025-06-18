@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 farm_tasks = []
 
 def show_menu():
