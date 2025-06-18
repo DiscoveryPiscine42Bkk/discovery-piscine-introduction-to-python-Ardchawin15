@@ -36,7 +36,6 @@ def delete_task():
     show_tasks()
     name_to_delete = input("กรุณาใส่ 'ชื่องาน' ที่ต้องการลบ: ")
 
-    # ค้นหา index งานที่ตรงกับชื่อ
     found = False
     for i, task in enumerate(farm_tasks):
         if task["name"].lower() == name_to_delete.lower():
