@@ -29,16 +29,24 @@ def show_tasks():
         print(f"{i}. {task['name']} ({task['category']}) - วันที่: {task['date']}")
 
 def delete_task():
+    if not farm_tasks:
+        print("ไม่มีงานให้ลบ")
+        return
+
     show_tasks()
-    try:
-        index = int(input("กรุณาใส่เลขลำดับของงานที่ต้องการลบ: ")) - 1
-        if 0 <= index < len(farm_tasks):
-            removed = farm_tasks.pop(index)
+    name_to_delete = input("กรุณาใส่ 'ชื่องาน' ที่ต้องการลบ: ")
+
+    # ค้นหา index งานที่ตรงกับชื่อ
+    found = False
+    for i, task in enumerate(farm_tasks):
+        if task["name"].lower() == name_to_delete.lower():
+            removed = farm_tasks.pop(i)
             print(f"🗑 ลบงาน '{removed['name']}' แล้ว")
-        else:
-            print("❌ ลำดับไม่ถูกต้อง")
-    except ValueError:
-        print("❌ กรุณาใส่ตัวเลข")
+            found = True
+            break
+
+    if not found:
+        print("❌ ไม่พบบางงานชื่อนี้ในระบบ")
 
 def summarize_tasks():
     summary = {}
